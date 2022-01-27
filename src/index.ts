@@ -40,12 +40,14 @@ export interface CertResponse {
  */
 const generateSslCert = async ({
   domain = "localhost",
-  modifyHostsFile = true} : GenerateSslCertOptions
+  modifyHostsFile = true} : GenerateSslCertOptions = {}
 ) : Promise<CertResponse | Error> => {
   try {
     console.info(
       `\nSetting up automatic SSL certificate (may require elevated permissions/sudo)\n`
     );
+
+    console.info(domain, modifyHostsFile);
 
     if ([`linux`, `darwin`].includes(os.platform()) && !process.env.HOME) {
       // this is a total hack to ensure process.env.HOME is set on linux and mac
@@ -74,12 +76,10 @@ const generateSslCert = async ({
       cert
     };
   } catch (error: unknown) {
-    if (error instanceof Error)
-      console.error(
-        `\nFailed to generate dev SSL certificate - ${error.message}`
-      );
-
-    throw error as Error;
+    const err = error as Error;
+    console.error(`\nFailed to generate dev SSL certificate - ${err.message}`);
+      
+    throw err;
   }
 };
 
