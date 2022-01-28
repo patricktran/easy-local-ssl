@@ -33,8 +33,7 @@ Check out the examples folder:
 ```js
 const generateSslCert = require("easy-local-ssl");
 
-//in your webpack config
-
+// in your webpack config
 const ssl = await generateSslCert();
 
 ...
@@ -58,7 +57,7 @@ The generateSslCert method accepts an `options` object.
 
 ```js
 
-//specify a custom domain
+// specify a custom domain
 const ssl = await generateSslCert({
     domain: "local.myapp.com",
     modifyHostsFile: true
@@ -67,4 +66,4 @@ const ssl = await generateSslCert({
 
 ## License
 
-MIT © [patricktran](https://github.com/patricktran)`
+MIT © [patricktran](https://github.com/patricktran)
