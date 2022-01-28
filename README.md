@@ -55,6 +55,8 @@ The generateSslCert method accepts an `options` object.
 | `domain`          | custom domain for the auto generated ssl certificate | "localhost"   | string  |
 | `modifyHostsFile` | modifying your /etc/hosts file for custom domains?   | true          | boolean |
 
+<br />
+
 ```js
 
 // specify a custom domain
