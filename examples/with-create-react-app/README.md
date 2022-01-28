@@ -2,6 +2,8 @@
 
 Uses [carco](https://www.npmjs.com/package/@craco/craco) to override the create-react-app configuration.
 
+See `craco.config.js`
+
 ## Running this example
 
 ```bash

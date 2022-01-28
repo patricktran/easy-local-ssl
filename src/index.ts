@@ -47,8 +47,6 @@ const generateSslCert = async ({
       `\nSetting up automatic SSL certificate (may require elevated permissions/sudo)\n`
     );
 
-    console.info(domain, modifyHostsFile);
-
     if ([`linux`, `darwin`].includes(os.platform()) && !process.env.HOME) {
       // this is a total hack to ensure process.env.HOME is set on linux and mac
       const mkdtemp = fs.mkdtempSync(path.join(os.tmpdir(), `home-`));
